@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -17,3 +18,5 @@ Route::get('/pays', function () {
         "ZW" => "Zimbabwe"
     ];
 });
+
+Route::get('/articles', [ArticleController::class, 'index']);
