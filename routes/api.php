@@ -8,15 +8,4 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/pays', function () {
-    return [
-        "AF" => "Afghanistan",
-        "AL" => "Albanie",
-        "RDC" => "RDCongo",
-        "VN" => "Vietnam",
-        "ZM" => "Zambie",
-        "ZW" => "Zimbabwe"
-    ];
-});
-
-Route::get('/articles', [ArticleController::class, 'index']);
+Route::apiResource('articles', ArticleController::class);
