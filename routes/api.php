@@ -11,7 +11,9 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::apiResource('articles', ArticleController::class);
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::apiResource('articles', ArticleController::class);
+});
 
 Route::post('/login', function (Request $request) {
     $request->validate([

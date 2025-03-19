@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -36,5 +37,8 @@ class DatabaseSeeder extends Seeder
         /*$this->call([
             ArticleCategorieSeeder::class,
         ]);*/
+
+        $article = Article::find(1);
+        $article->categories()->sync(10);
     }
 }

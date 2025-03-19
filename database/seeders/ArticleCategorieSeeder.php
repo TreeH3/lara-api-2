@@ -19,7 +19,7 @@ class ArticleCategorieSeeder extends Seeder
         $categories = Categorie::all();
 
         foreach ($articles as $article) {
-            // Associer chaque article à 1 à 3 catégories aléatoires
+            // 1 à 3 catégories aléatoires par article
             $randomCategories = $categories->random(rand(1, 3))->pluck('id')->toArray();
 
             foreach ($randomCategories as $categorie_id) {
